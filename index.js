@@ -6,8 +6,8 @@ const cors = require('cors')
 const { errorHandler } = require('./src/middlewares/errorMiddleware')
 const connectDB = require('./src/config/db')
 
-// //connect to Mongo
-// connectDB()
+//connect to Mongo
+connectDB()
 
 // add middleware
 app.use(cors())
