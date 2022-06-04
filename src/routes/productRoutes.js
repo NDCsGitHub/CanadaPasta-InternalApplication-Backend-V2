@@ -13,7 +13,7 @@ const {
 
 
 router.route('/').get(getProducts).post(setProducts)
-router.route('/:id').put(updateProducts).delete(deleteProducts)
+router.route('/').put(updateProducts).delete(deleteProducts)
 
 
 

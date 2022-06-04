@@ -49,7 +49,7 @@ const setProducts = asyncHandler(async (req, res) => {
 const updateProducts = asyncHandler(async (req, res) => {
 
     // find the product
-    const product = await ProductModel.findById(req.params.id)
+    const product = await ProductModel.findById(req.query.id)
     if (!product) {
         res.status(400)
         throw new Error('Product Not Found')
@@ -57,7 +57,7 @@ const updateProducts = asyncHandler(async (req, res) => {
 
     // update the product
     const updatedProduct = await ProductModel.findByIdAndUpdate(
-        req.params.id,
+        req.query.id,
         req.body,
         {
             new: true,
@@ -79,7 +79,7 @@ const updateProducts = asyncHandler(async (req, res) => {
 const deleteProducts = asyncHandler(async (req, res) => {
 
     // find the product
-    const product = await ProductModel.findById(req.params.id)
+    const product = await ProductModel.findById(req.query.id)
     if (!product) {
         res.status(400)
         throw new Error('Product Not Found')
