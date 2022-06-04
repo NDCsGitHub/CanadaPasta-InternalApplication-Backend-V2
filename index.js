@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: false }))
 
 
 
-// Customer Routes
+// product Routes
 app.use('/api/products', require('./src/routes/productRoutes.js'))
 
 

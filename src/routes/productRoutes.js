@@ -10,13 +10,8 @@ const {
 } = require('../controllers/productController')
 
 
-
-
 router.route('/').get(getProducts).post(setProducts)
 router.route('/').put(updateProducts).delete(deleteProducts)
-
-
-
 
 
 module.exports = router
