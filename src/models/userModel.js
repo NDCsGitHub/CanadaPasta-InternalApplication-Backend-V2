@@ -11,7 +11,7 @@ const userSchema = mongoose.Schema({
         unique: true,
     },
     Password: {
-        type: string,
+        type: String,
         required: true,
     },
     Admin: {
