@@ -23,3 +23,4 @@ router.route('/userproduct').get(protect, getUserProducts)
 router.route('/userproduct').put(protect, updateUserProducts).delete(protect, deleteUserProducts)
 
 module.exports = router
+

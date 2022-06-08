@@ -25,6 +25,8 @@ const getProducts = asyncHandler(async (req, res) => {
 
 })
 
+
+
 // @desc  Get Products that belongs to the logged in user
 // @route GET /api/userproduct
 // @access Private
@@ -50,6 +52,14 @@ const setProducts = asyncHandler(async (req, res) => {
     if (!req.body.productNameEN) {
         res.status(400)
         throw new Error('Please add product name')
+    }
+
+
+    // check for user
+    const user = await UserModel.findById(req.user.id)
+    if (!user) {
+        res.status(401)
+        throw new Error('A user must login to see the products')
     }
 
     // add new product
@@ -168,7 +178,7 @@ const deleteProducts = asyncHandler(async (req, res) => {
         throw new Error('Product Not Found')
     }
 
-    // check for user
+    // check for user, only allow delete if a user is logged in
     const user = await UserModel.findById(req.user.id)
     if (!user) {
         res.status(401)
@@ -187,7 +197,7 @@ const deleteProducts = asyncHandler(async (req, res) => {
 
 
 
-// @desc Delete Products
+// @desc Delete user specified Products
 // @route DELETE /api/userproduct
 // @access Private
 const deleteUserProducts = asyncHandler(async (req, res) => {
@@ -198,7 +208,6 @@ const deleteUserProducts = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error('Product Not Found')
     }
-
 
     // check for user
     const user = await UserModel.findById(req.user.id)
@@ -212,7 +221,6 @@ const deleteUserProducts = asyncHandler(async (req, res) => {
         res.status(401)
         throw new Error('Only Creator of the product are allowed to delete the item')
     }
-
 
     // delete the product
     await product.remove()
