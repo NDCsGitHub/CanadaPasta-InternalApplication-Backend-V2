@@ -7,11 +7,19 @@ const {
     setProducts,
     updateProducts,
     deleteProducts,
+    getUserProducts,
+    updateUserProducts,
+    deleteUserProducts,
 } = require('../controllers/productController')
 
+// import private route middleware
+const { protect } = require('../middlewares/authMiddleware')
 
-router.route('/').get(getProducts).post(setProducts)
-router.route('/').put(updateProducts).delete(deleteProducts)
 
+
+router.route('/').get(protect, getProducts).post(protect, setProducts)
+router.route('/').put(protect, updateProducts).delete(protect, deleteProducts)
+router.route('/userproduct').get(protect, getUserProducts)
+router.route('/userproduct').put(protect, updateUserProducts).delete(protect, deleteUserProducts)
 
 module.exports = router
