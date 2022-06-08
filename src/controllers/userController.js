@@ -108,7 +108,6 @@ const getUserData = asyncHandler(async (req, res) => {
             admin: user.Admin,
         }
     })
-
 })
 
 
