@@ -25,8 +25,6 @@ app.use('/api/users', require('./src/routes/userRoutes.js'))
 
 
 
-
-
 // overwrite default express error
 app.use(errorHandler)
 
