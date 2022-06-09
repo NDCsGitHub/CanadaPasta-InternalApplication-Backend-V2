@@ -16,6 +16,10 @@ const productSchema = mongoose.Schema({
     Product_Name_CN: {
         type: String,
         required: [true, 'Please add Product Name CN']
+    },
+    Product_Type: {
+        type: String,
+        required: [true, 'Please add Product Type for the Item']
     }
 }, {
     timestamps: true,

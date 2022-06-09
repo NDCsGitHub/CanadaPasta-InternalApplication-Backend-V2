@@ -54,7 +54,7 @@ const getProductByType = asyncHandler(async (req, res) => {
     })
 
     res.status(200).json({
-        message: 'Get all products base on querty type',
+        message: 'Get all products base on query type',
         error: false,
         data: product,
     })
@@ -87,6 +87,7 @@ const setProducts = asyncHandler(async (req, res) => {
     const product = await ProductModel.create({
         Product_Name_EN: req.body.productNameEN,
         Product_Name_CN: req.body.productNameCN,
+        Product_Type: req.body.productType,
         user: req.user.id,
     })
     res.status(200).json({
