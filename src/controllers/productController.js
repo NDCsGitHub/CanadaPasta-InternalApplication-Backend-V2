@@ -62,8 +62,6 @@ const getProductByType = asyncHandler(async (req, res) => {
 
 
 
-
-
 /*************************CREATE******************************/
 
 // @desc Create Products
