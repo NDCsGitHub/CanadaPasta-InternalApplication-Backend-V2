@@ -43,6 +43,24 @@ const getUserProducts = asyncHandler(async (req, res) => {
 })
 
 
+// @desc  Get Products base on product type
+// @route GET /api/products
+// @access Private
+const getProductByType = asyncHandler(async (req, res) => {
+
+    // find all product base on their query type
+    const product = await ProductModel.find({
+        Product_Type: req.query.productType
+    })
+
+    res.status(200).json({
+        message: 'Get all products base on querty type',
+        error: false,
+        data: product,
+    })
+})
+
+
 /*************************CREATE******************************/
 
 // @desc Create Products
@@ -242,4 +260,5 @@ module.exports = {
     getUserProducts,
     updateUserProducts,
     deleteUserProducts,
+    getProductByType,
 }
