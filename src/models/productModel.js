@@ -20,6 +20,10 @@ const productSchema = mongoose.Schema({
     Product_Type: {
         type: String,
         required: [true, 'Please add Product Type for the Item']
+    },
+    Product_Description: {
+        type: String,
+        required: [true, 'Please make sure to have a simple description for the item']
     }
 }, {
     timestamps: true,
