@@ -24,7 +24,8 @@ const productSchema = mongoose.Schema({
     Product_Description: {
         type: String,
         required: [true, 'Please make sure to have a simple description for the item']
-    }
+    },
+
 }, {
     timestamps: true,
 })
