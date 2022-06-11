@@ -75,8 +75,7 @@ const setProducts = asyncHandler(async (req, res) => {
 
 
     // check for user
-    const user = await UserModel.findById(req.user.id)
-    if (!user) {
+    if (!req.user) {
         res.status(401)
         throw new Error('A user must login to see the products')
     }
@@ -112,7 +111,7 @@ const updateProducts = asyncHandler(async (req, res) => {
         throw new Error('Product Not Found')
     }
 
-    // check for user
+    // check for user, dont have to find user again, since middleware alreadt provided the user
     const user = await UserModel.findById(req.user.id)
     if (!user) {
         res.status(401)
@@ -148,7 +147,7 @@ const updateUserProducts = asyncHandler(async (req, res) => {
         throw new Error('Product Not Found')
     }
 
-    // check for user
+    // check for user, again dont have to find user again, since middleware alreadt provided the user
     const user = await UserModel.findById(req.user.id)
     if (!user) {
         res.status(401)
@@ -199,6 +198,7 @@ const deleteProducts = asyncHandler(async (req, res) => {
     }
 
     // check for user, only allow delete if a user is logged in
+    //  dont have to find user again, since middleware alreadt provided the user
     const user = await UserModel.findById(req.user.id)
     if (!user) {
         res.status(401)

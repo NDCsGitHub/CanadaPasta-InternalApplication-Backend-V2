@@ -96,17 +96,12 @@ const loginUser = asyncHandler(async (req, res) => {
 // @access Private
 const getUserData = asyncHandler(async (req, res) => {
 
-    const user = await UserModel.findById(req.user.id)
-
+    // dont need to find user again, since auth middleware already provided us with the user info
     res.status(200).json({
         message: 'user data obtained',
         error: false,
-        data: {
-            _id: user.id,
-            name: user.Name,
-            email: user.Email,
-            admin: user.Admin,
-        }
+        data: req.user
+
     })
 })
 
