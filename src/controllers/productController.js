@@ -85,6 +85,7 @@ const setProducts = asyncHandler(async (req, res) => {
         Product_Name_EN: req.body.productNameEN,
         Product_Name_CN: req.body.productNameCN,
         Product_Type: req.body.productType,
+        Product_Description: req.body.productDescription,
         user: req.user.id,
     })
     res.status(200).json({
