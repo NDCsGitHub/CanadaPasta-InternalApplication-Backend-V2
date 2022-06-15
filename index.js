@@ -5,6 +5,7 @@ const app = express()
 const cors = require('cors')
 const { errorHandler } = require('./src/middlewares/errorMiddleware')
 const connectDB = require('./src/configs/db')
+const path = require('path')
 
 //connect to Mongo
 connectDB()
@@ -21,6 +22,7 @@ app.use('/api/products', require('./src/routes/productRoutes.js'))
 
 // user Routes
 app.use('/api/users', require('./src/routes/userRoutes.js'))
+
 
 
 
