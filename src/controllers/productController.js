@@ -69,7 +69,7 @@ const getProductByType = asyncHandler(async (req, res) => {
 // @route POST /api/products
 // @access Private
 const setProducts = asyncHandler(async (req, res) => {
-    if (!req.body.productNameEN) {
+    if (!req.body.product_name_en) {
         res.status(400)
         throw new Error('Please add product name')
     }
@@ -78,15 +78,18 @@ const setProducts = asyncHandler(async (req, res) => {
     // check for user
     if (!req.user) {
         res.status(401)
-        throw new Error('A user must login to see the products')
+        throw new Error('A user must login to create the products')
     }
 
     // add new product
     const product = await ProductModel.create({
-        Product_Name_EN: req.body.productNameEN,
-        Product_Name_CN: req.body.productNameCN,
-        Product_Type: req.body.productType,
-        Product_Description: req.body.productDescription,
+        Product_Name_EN: req.body.product_name_en,
+        Product_Name_CN: req.body.product_name_cn,
+        Price: req.body.price,
+        Product_Type: req.body.product_type,
+        Product_Description_EN: req.body.description_en,
+        Product_Description_CN: req.body.description_cn,
+        Comment: req.body.comment,
         user: req.user.id,
     })
     res.status(200).json({
