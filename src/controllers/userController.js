@@ -12,8 +12,8 @@ const bcrypt = require('bcryptjs')
 const registerUser = asyncHandler(async (req, res) => {
 
     // check if fields are empty
-    const { Name, Email, Password } = req.body
-    if (!Name || !Email || !Password) {
+    const { First_Name, Last_Name, Email, Password, Account_Type, Company } = req.body
+    if (!First_Name || !Last_Name || !Email || !Password || !Account_Type || !Company) {
         res.status(400)
         throw new Error('Please add all fields')
     }
@@ -31,10 +31,12 @@ const registerUser = asyncHandler(async (req, res) => {
 
     // Create User
     const user = await UserModel.create({
-        Name,
+        First_Name,
+        Last_Name,
         Email,
         Password: hashedPassword,
-        Admin: false,
+        Account_Type,
+        Company,
     })
 
     if (user) {
@@ -43,9 +45,11 @@ const registerUser = asyncHandler(async (req, res) => {
             error: false,
             data: {
                 _id: user.id,
-                name: user.Name,
+                firstName: user.First_Name,
+                lastName: user.Last_Name,
                 email: user.Email,
-                admin: user.Admin,
+                accountType: user.Account_Type,
+                company: user.Company,
                 token: generateToken(user._id)
             },
         })
