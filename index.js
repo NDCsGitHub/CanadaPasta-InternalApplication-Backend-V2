@@ -23,6 +23,8 @@ app.use('/api/products', require('./src/routes/productRoutes.js'))
 // user Routes
 app.use('/api/users', require('./src/routes/userRoutes.js'))
 
+// customer route
+app.use('/api/customers', require('./src/routes/customerRoutes.js'))
 
 
 
