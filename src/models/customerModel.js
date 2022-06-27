@@ -21,5 +21,39 @@ const customerSchema = mongoose.Schema({
         type: String,
         require: [true, 'Please add Secondary Contact Name']
     },
+    Phone: {
+        type: String,
+        require: [true, 'Please add a Phone Number']
+    },
+    Wechat: {
+        type: String,
+        require: [true, 'Please Include a Wechat ID']
+    },
+    Email: {
+        type: String,
+        require: [true, 'Please Include a Email for the Contact']
+    },
+    Addtional_Info: {
+        type: String,
+        require: false,
+    },
+    Business_Name_EN: {
+        type: String,
+        require: [true, 'Please Include Business Name EN']
+    },
+    Business_Name_CN: {
+        type: String,
+        require: [true, 'Please Include Business Name CN']
+    },
+    Business_Phone: {
+        type: String,
+        require: [true, 'Please Include Business Phone Number']
+    },
+    Business_Number: {
+        type: String,
+        require: [true, 'Please Include The Business Number']
+    },
+    Shipping_Address: {
 
+    }
 })
