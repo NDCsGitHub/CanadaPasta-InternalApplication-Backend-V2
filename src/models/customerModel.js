@@ -55,18 +55,27 @@ const customerSchema = mongoose.Schema({
     },
     Address: {
         Shipping: {
+            Street_Number,
             Street_Name: {
                 type: String,
                 require: [true, 'Please Include The Street Name of Shipping Address ']
             },
-
+            City,
+            Province,
+            Postal_Code,
+            Country,
 
         },
         Billing: {
+            Street_Number,
             Street_Name: {
                 type: String,
                 require: [true, 'Please Include The Street Name of Billing Address ']
             },
+            City,
+            Province,
+            Postal_Code,
+            Country,
         }
     }
 })
