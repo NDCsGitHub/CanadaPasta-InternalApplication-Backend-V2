@@ -53,7 +53,22 @@ const customerSchema = mongoose.Schema({
         type: String,
         require: [true, 'Please Include The Business Number']
     },
-    Shipping_Address: {
+    Address: {
+        Shipping: {
+            Street_Name: {
+                type: String,
+                require: [true, 'Please Include The Street Name of Shipping Address ']
+            },
 
+
+        },
+        Billing: {
+            Street_Name: {
+                type: String,
+                require: [true, 'Please Include The Street Name of Billing Address ']
+            },
+        }
     }
 })
+
+// https://stackoverflow.com/questions/39596625/nested-objects-in-mongoose-schemas
