@@ -54,30 +54,39 @@ const customerSchema = mongoose.Schema({
         require: [true, 'Please Include The Business Number']
     },
     Address: {
-        Shipping: {
-            Street_Number,
-            Street_Name: {
-                type: String,
-                require: [true, 'Please Include The Street Name of Shipping Address ']
-            },
-            City,
-            Province,
-            Postal_Code,
-            Country,
-
-        },
-        Billing: {
-            Street_Number,
-            Street_Name: {
-                type: String,
-                require: [true, 'Please Include The Street Name of Billing Address ']
-            },
-            City,
-            Province,
-            Postal_Code,
-            Country,
-        }
+        Shipping: addressSchema,
+        Billing: addressSchema,
     }
+}, {
+    timestamps: true,
 })
+
+const addressSchema = mongoose.Schema({
+    Street_Number: {
+        type: String,
+        require: [true, 'Please include the street number']
+    },
+    Street_Name: {
+        type: String,
+        require: [true, 'Please Include The Street Name']
+    },
+    City: {
+        type: String,
+        require: [true, 'Please include the city']
+    },
+    Province: {
+        type: String,
+        require: [true, 'Please include the province']
+    },
+    Postal_Code: {
+        type: String,
+        require: [true, 'Please include the Postal Code']
+    },
+    Country: {
+        type: String,
+        require: [true, 'Please include country']
+    },
+})
+
 
 // https://stackoverflow.com/questions/39596625/nested-objects-in-mongoose-schemas
