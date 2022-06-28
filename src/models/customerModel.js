@@ -89,4 +89,6 @@ const addressSchema = mongoose.Schema({
 })
 
 
+module.exports = mongoose.model('customer', customerSchema)
+
 // https://stackoverflow.com/questions/39596625/nested-objects-in-mongoose-schemas
