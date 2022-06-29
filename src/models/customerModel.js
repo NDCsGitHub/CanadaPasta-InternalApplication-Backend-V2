@@ -61,6 +61,8 @@ const customerSchema = mongoose.Schema({
     timestamps: true,
 })
 
+
+// create address schema
 const addressSchema = mongoose.Schema({
     Street_Number: {
         type: String,
@@ -90,5 +92,7 @@ const addressSchema = mongoose.Schema({
 
 
 module.exports = mongoose.model('customer', customerSchema)
+
+
 
 // https://stackoverflow.com/questions/39596625/nested-objects-in-mongoose-schemas
