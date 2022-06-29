@@ -1,6 +1,37 @@
 // define models, customer schema
 const mongoose = require('mongoose')
 
+
+// create address schema
+const addressSchema = mongoose.Schema({
+    Street_Number: {
+        type: String,
+        require: [true, 'Please include the street number']
+    },
+    Street_Name: {
+        type: String,
+        require: [true, 'Please Include The Street Name']
+    },
+    City: {
+        type: String,
+        require: [true, 'Please include the city']
+    },
+    Province: {
+        type: String,
+        require: [true, 'Please include the province']
+    },
+    Postal_Code: {
+        type: String,
+        require: [true, 'Please include the Postal Code']
+    },
+    Country: {
+        type: String,
+        require: [true, 'Please include country']
+    },
+})
+
+
+
 // customer schema
 const customerSchema = mongoose.Schema({
     // to record which user created the customer, the ref is the user model
@@ -62,37 +93,6 @@ const customerSchema = mongoose.Schema({
 })
 
 
-// create address schema
-const addressSchema = mongoose.Schema({
-    Street_Number: {
-        type: String,
-        require: [true, 'Please include the street number']
-    },
-    Street_Name: {
-        type: String,
-        require: [true, 'Please Include The Street Name']
-    },
-    City: {
-        type: String,
-        require: [true, 'Please include the city']
-    },
-    Province: {
-        type: String,
-        require: [true, 'Please include the province']
-    },
-    Postal_Code: {
-        type: String,
-        require: [true, 'Please include the Postal Code']
-    },
-    Country: {
-        type: String,
-        require: [true, 'Please include country']
-    },
-})
-
 
 module.exports = mongoose.model('customer', customerSchema)
 
-
-
-// https://stackoverflow.com/questions/39596625/nested-objects-in-mongoose-schemas
