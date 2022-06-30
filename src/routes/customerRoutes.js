@@ -21,3 +21,4 @@ router.route('/').get(protect, updateCustomer).delete(protect, deleteCustomer)
 
 
 module.exports = router
+
