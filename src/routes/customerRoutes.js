@@ -22,5 +22,6 @@ router.route('/').put(protect, updateCustomer).delete(protect, deleteCustomer)
 // routes for customer base on user
 router.route('/usercustomer').get(protect, getCustomer).post(protect, setCustomer)
 
+
 module.exports = router
 
