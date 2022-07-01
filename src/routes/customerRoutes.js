@@ -15,6 +15,8 @@ const { protect } = require('../middlewares/authMiddleware')
 
 
 
+
+
 // routes for customer
 router.route('/').get(protect, getCustomer).post(protect, setCustomer)
 router.route('/').put(protect, updateCustomer).delete(protect, deleteCustomer)
@@ -23,5 +25,7 @@ router.route('/').put(protect, updateCustomer).delete(protect, deleteCustomer)
 router.route('/usercustomer').get(protect, getCustomer).post(protect, setCustomer)
 
 
+
 module.exports = router
+
 
