@@ -28,4 +28,3 @@ router.route('/usercustomer').get(protect, getCustomer).post(protect, setCustome
 
 module.exports = router
 
-
