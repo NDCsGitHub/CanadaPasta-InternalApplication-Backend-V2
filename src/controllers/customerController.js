@@ -28,7 +28,7 @@ const getCustomer = asyncHandler(async (req, res) => {
 
 
 // @desc Get All Customers base on the user who created it
-// @route GET /api/customers
+// @route GET /api/usercustomers
 // @access Private
 const getUserCustomers = asyncHandler(async (req, res) => {
 
